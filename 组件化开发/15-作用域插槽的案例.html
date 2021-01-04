@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn></cpn>
+    <cpn>
+      <!-- 如果要获取子组件中的 -->
+      <template slot-scope='slot'>
+        <span v-for='j in slot.data'>{{j}}- </span>
+      </template>
+    </cpn>
+    <cpn></cpn>
+  </div>
+  <template id='cpn'>
+    <div>
+      <slot :data='Lan'>
+        <ul>
+          <li v-for='i in Lan'>{{i}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '111'
+    },
+    components: {
+      cpn:{
+        template:'#cpn',
+        data() {
+          return{
+            Lan:['java','c','go','c++','python']
+          }
+        }
+      }
+    }
+  })
+  </script>
+</body>
+</html>

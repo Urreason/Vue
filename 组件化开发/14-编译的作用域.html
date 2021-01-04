@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn v-show='isShow'></cpn>
+  </div>
+  <template id='cpn'>
+    <div>
+      <h2>我是子组件</h2>
+      <p>我是内容哈哈哈哈哈哈</p>
+      <!-- button则是在组件自己的作用域内查找，不会跨作用域 -->
+      <button v-show='isShow'>按钮</button>
+    </div>
+  </template>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '111',
+      isShow: true
+    },
+    components: {
+      cpn:{
+        template:'#cpn',
+        data(){
+          return{
+            isShow: false
+          }
+        }
+      }
+    }
+  })
+  </script>
+</body>
+</html>

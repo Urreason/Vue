@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+
+
+    const cpnC = Vue.extend({
+      template: `
+      <div>
+        <h2>我是标题</h2>
+        <p>我是内容哈哈哈哈哈哈</p>
+      </div>
+      `
+    })
+    
+    // 全局组件
+    // 可以在多个Vue实例下使用
+    Vue.component('my-cpn',cpnC)
+    
+    
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '111'
+      },
+      components: {
+        cpn: cpnC   //组件名--组件构造器
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn @itemclick='cpnclick'></cpn>
+  </div>
+  <template id='cpn'>
+    <div>
+      <button v-for='i in leibie' @click='iclick(i)'>
+        {{i.name}}
+      </button>
+    </div>
+  </template>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+  const cpn ={
+    template:'#cpn' ,
+    data() {
+      return{
+        leibie:[
+          {id:'aaa',name:'syf'},
+          {id:'bbb',name:'lxy'},
+          {id:'ccc',name:'sgd'},
+          {id:'ddd',name:'qqf'},
+        ]
+      }
+    },
+    methods: {
+      iclick(i){
+        // console.log(i);
+        // 传给父组件
+        // 发射一个事件
+        // 自定义事件的名字，参数
+        this.$emit('itemclick',i)
+      }
+    }
+    }
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '111'
+    },
+    components: {
+      cpn
+    },
+    methods: {
+      cpnclick(i) {
+        console.log('1111',i);
+      }
+    }
+  })
+  </script>
+</body>
+</html>

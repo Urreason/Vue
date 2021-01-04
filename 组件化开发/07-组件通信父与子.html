@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn :cmovie='movies' :cmessage='message'></cpn>
+  </div>
+  <template id='cpn'>
+    <div>
+      <p>{{cmovie}}</p>
+      <h2>{{cmessage}}</h2>            
+    </div>
+  </template>
+  <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+  <script>
+    const cpn= {
+      template:'#cpn',
+      data() {
+        return{}
+      },
+      props:{
+        //可以做类型
+        cmovies:Array,
+        cmessage:{
+          type: Array,
+          default:'aaa'
+        }
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '111',
+        movies:['aaa','bbb','ccc']
+      },
+      components: {
+        cpn
+      }
+    })
+  </script>
+</body>
+</html>
