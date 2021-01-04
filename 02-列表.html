@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='vue.js'></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- <li>{{movies[0]}}</li>
+            <li>{{movies[1]}}</li>
+            <li>{{movies[2]}}</li> -->
+            <li v-for='item in movies'>{{item}}</li>
+            <!-- 遍历 -->
+
+        </ul>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'sss',
+                movies:['tttt','aaaaa','bbbbb']
+            }
+        })
+    </script>
+</body>
+</html>

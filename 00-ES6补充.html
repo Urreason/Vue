@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+
+  <script>
+    // 变量的作用域
+    // {
+    //   var name = 'app';
+    //   console.log(name); 
+    // }
+    // console.log(name);
+    // 没有块级作用域会有问题：
+    // // if没有任何作用
+    // if(true) {
+    //   var name = 'abc';
+    // }
+    // console.log(name);
+      // 所以var没有块级作用域会非常有问题
+      // let有自己的作用域
+      const btns = document.querySelectorAll('button');
+      for(let i=0;i<btns.length;i++) {
+        btns[i].addEventListener('click',function(){
+          console.log('第'+i+'个被点击了');
+        })
+      }
+      
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- 不需要小括号使用计算属性 -->
+        <h2>{{fullName}}</h2>
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                fisrtName: 'shi',
+                lastName: 'yifei'
+            },
+            computed: {
+                fullName: function() {
+                    return this.fisrtName + ' ' + this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

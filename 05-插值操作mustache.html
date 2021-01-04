@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        {{message}}
+        <p>{{age}}你好像有点小哦</p>
+        <p>{{gender+ ' ' +gender}}</p>
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '111',
+                age: '22',
+                gender: 'male'
+            }
+        })
+    </script>
+</body>
+
+</html>
